@@ -16,7 +16,7 @@ def remove_blank_lines(string: str) -> str:
             break
         string = new_string
 
-    return new_string.lstrip("\n")
+    return new_string.strip("\n")
 
 
 def clean_code(string: str) -> str:
