@@ -23,4 +23,12 @@ def get_comp(string: str) -> str:
     else:
         return string[equal_index+1:jump_index]
 
+
+def get_jump(string: str) -> str:
+    jump_index = string.find(";")
+    if jump_index == -1:
+        return "null"
+    else:
+        return string[jump_index+1:]
+
 #def get_c_instruction_fields(string: str) -> Dict[str, str]:
