@@ -33,18 +33,3 @@ def test_remove_comments(input, expected):
     assert remove_comments(input) == expected
 
 
-def test_clean_program():
-    file_name = "Fill.asm"
-    file_path = os.path.join(__file__, "..", file_name)
-    file_path = os.path.abspath(file_path)
-    with open(file_path, "r") as file:
-        string = file.read()
-    file_name = "CleanFill.asm"
-    file_path = os.path.join(__file__, "..", file_name)
-    file_path = os.path.abspath(file_path)
-    with open(file_path, "r") as file:
-        clean_string = file.read()
-    output = clean_code(string)
-    print(f"output {output[-1]}")
-    print(f"results {clean_string[-1]}")
-    assert output == clean_string
