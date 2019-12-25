@@ -1,4 +1,4 @@
-# Hacker Assembler
+# Hack Assembler
 
 This is an Assembler of the Hack Machine Language written in Python3.
 This is the [6th project](https://www.nand2tetris.org/project06) of the Nand2Tetris Book/Course
