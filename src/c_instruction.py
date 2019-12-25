@@ -90,5 +90,5 @@ def convert_c(string: str) -> str:
     dest, comp, jump = get_c_instruction_fields(string)
     dest = dest_table[dest]
     comp = comp_table[comp]
-    jump = dest_table[jump]
+    jump = jump_table[jump]
     return "111" + comp + dest + jump
