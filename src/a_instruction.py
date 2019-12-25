@@ -21,7 +21,7 @@ def convert_a(string: str) -> str:
     global pre_defined_symbols
     string = string[1:]
     if not string.isdigit():
-        if string[0] == "R":
+        if string[0] == "R" and string[1:].isdigit() and int(string[1:]) <= 15:
             string = string[1:]
         elif string in pre_defined_symbols:
             string = pre_defined_symbols[string]
@@ -29,7 +29,6 @@ def convert_a(string: str) -> str:
             pre_defined_symbols[string] = str(next_ram)
             string = pre_defined_symbols[string]
             next_ram += 1
-
     decimal_number = int(string)
     bin_number = bin(decimal_number)
     bin_str = str(bin_number)[2:]
