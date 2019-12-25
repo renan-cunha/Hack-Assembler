@@ -1,4 +1,6 @@
 
+
+next_ram = 16
 pre_defined_symbols = {"SCREEN": "16384",
                        "KBD": "24576",
                        "SP": "0",
@@ -15,12 +17,19 @@ def is_a_instruction(string: str) -> bool:
 
 
 def convert_a(string: str) -> str:
+    global next_ram
+    global pre_defined_symbols
     string = string[1:]
     if not string.isdigit():
         if string[0] == "R":
             string = string[1:]
-        else:
+        elif string in pre_defined_symbols:
             string = pre_defined_symbols[string]
+        else:
+            pre_defined_symbols[string] = str(next_ram)
+            string = pre_defined_symbols[string]
+            next_ram += 1
+
     decimal_number = int(string)
     bin_number = bin(decimal_number)
     bin_str = str(bin_number)[2:]

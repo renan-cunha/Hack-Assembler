@@ -21,13 +21,17 @@ if __name__ == "__main__":
         if is_label(line):
             label = get_label(line)
             # each label jumps a line
-            pre_defined_symbols["label"] = line_number - label_counter
+            pre_defined_symbols[label] = line_number - label_counter
             label_counter += 1
 
     with open(binary_file_name, "w") as binary_file:
-        for line in machine_lines:
+        for line_index, line in enumerate(machine_lines):
             if is_a_instruction(line):
                 binary_line = convert_a(line)
+                binary_file.write(binary_line + "\n")
+            elif is_label(line):
+                pass
             else:
                 binary_line = convert_c(line)
-            binary_file.write(binary_line+"\n")
+                binary_file.write(binary_line + "\n")
+
